@@ -3273,15 +3273,10 @@ function free_session(session_id) {
         delete SESSIONS[session_id];
     });
 }
-function on_node_available(query_selector, timeout) {
+function on_node_available(node_id, timeout) {
     return new Promise((resolve)=>{
         function test_node(timeout) {
-            let node;
-            if (query_selector.by_id) {
-                node = document.getElementById(query_selector.by_id);
-            } else {
-                node = document.querySelector(query_selector.query_selector);
-            }
+            const node = document.querySelector(`[data-jscall-id='${node_id}']`);
             if (node) {
                 resolve(node);
             } else {
@@ -3309,6 +3304,7 @@ function update_session_dom(message) {
         try {
             update_or_replace(dom, html, replace);
             process_message(messages);
+            console.log(`init updates from ${session_id}`);
             done_initializing_session(session_id);
         } catch (error) {
             send_done_loading(session_id, error);
