@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Animating things · JSServe</title><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="index.html">JSServe</a></span></div><form class="docs-search" action="search.html"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="index.html">Home</a></li><li><a class="tocitem" href="plotting.html">Plotting</a></li><li><a class="tocitem" href="widgets.html">Widgets</a></li><li><a class="tocitem" href="deployment.html">Deployment</a></li><li><a class="tocitem" href="assets.html">Assets</a></li><li><a class="tocitem" href="extending.html">Extending</a></li><li><a class="tocitem" href="api.html">Api</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href="animation.html">Animating things</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="animation.html">Animating things</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/SimonDanisch/JSServe.jl/blob/master/docs/src/animation.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Animating-things"><a class="docs-heading-anchor" href="#Animating-things">Animating things</a><a id="Animating-things-1"></a><a class="docs-heading-anchor-permalink" href="#Animating-things" title="Permalink"></a></h1><p>Animations in JSServe are done via Observables.jl, much like it&#39;s the case for Makie.jl, so the same docs apply:</p><p>https://docs.makie.org/stable/documentation/nodes/index.html https://docs.makie.org/stable/documentation/animation/index.html</p><p>But lets quickly get started with a JSServe specific example:</p><pre><code class="language-julia hljs">using JSServe
-
-App() do
-    s = Slider([1, 2, 3])
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Animation · JSServe</title><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="index.html">JSServe</a></span></div><form class="docs-search" action="search.html"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="index.html">Home</a></li><li><a class="tocitem" href="plotting.html">Plotting</a></li><li><a class="tocitem" href="widgets.html">Widgets</a></li><li class="is-active"><a class="tocitem" href="animation.html">Animation</a></li><li><a class="tocitem" href="deployment.html">Deployment</a></li><li><a class="tocitem" href="assets.html">Assets</a></li><li><a class="tocitem" href="extending.html">Extending</a></li><li><a class="tocitem" href="api.html">Api</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href="animation.html">Animation</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="animation.html">Animation</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/SimonDanisch/JSServe.jl/blob/master/docs/src/animation.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Animating-things"><a class="docs-heading-anchor" href="#Animating-things">Animating things</a><a id="Animating-things-1"></a><a class="docs-heading-anchor-permalink" href="#Animating-things" title="Permalink"></a></h1><p>Animations in JSServe are done via Observables.jl, much like it&#39;s the case for Makie.jl, so the same docs apply:</p><p>https://docs.makie.org/stable/documentation/nodes/index.html https://docs.makie.org/stable/documentation/animation/index.html</p><p>But lets quickly get started with a JSServe specific example:</p><pre><code class="language-julia hljs">App() do session
+    s = Slider(1:3)
     value = map(s.value) do x
         return x ^ 2
     end
-    return DOM.div(s, value)
-end</code></pre><p>The <code>s.value</code> is an <code>Observable</code> which can be <code>mapp&#39;ed</code> to take on new values, and one can insert observables as an input to <code>DOM.tag</code> or as any attribute. The value of the <code>observable</code> will be renedered via <code>jssrender(session, observable[])</code>, and then updated whenever the value changes. So anything that supports being inserted into the <code>DOM</code> can be inside an observable, and the fallback is to use the display system (so plots etc work as well). This way, one can also return <code>DOM</code> elements as the result of an observable:</p><pre><code class="language-julia hljs">App() do
+    return JSServe.record_states(session, DOM.div(s, value))
+end</code></pre><div>
+  <div>
+    <script src="JSServe.bundled.js" type="module"></script>
+    <script type="module">JSServe.init_session('df471822-1a86-4bb5-9d39-4bb738493967', null, 'root')</script>
+    <div id="df471822-1a86-4bb5-9d39-4bb738493967" data-jscall-id="root">
+      <span></span>
+    </div>
+  </div>
+  <div>
+    <script type="module">    JSServe.fetch_binary('8def89cee3ed1af52c6f4182d410c317ef3991b6-8649230528824932564.dist').then(msgs=> JSServe.init_session('3f4c2be8-c70d-4cc6-8361-597abc270a09', msgs, 'sub'));
+</script>
+    <div id="3f4c2be8-c70d-4cc6-8361-597abc270a09" data-jscall-id="subsession-application-dom">
+      <div data-jscall-id="1">
+        <input step="1" max="3" min="1" data-jscall-id="2" value="1" oninput="" type="range" />
+        <span data-jscall-id="3">1</span>
+      </div>
+    </div>
+  </div>
+</div><p>The <code>s.value</code> is an <code>Observable</code> which can be <code>mapp&#39;ed</code> to take on new values, and one can insert observables as an input to <code>DOM.tag</code> or as any attribute. The value of the <code>observable</code> will be renedered via <code>jssrender(session, observable[])</code>, and then updated whenever the value changes. So anything that supports being inserted into the <code>DOM</code> can be inside an observable, and the fallback is to use the display system (so plots etc work as well). This way, one can also return <code>DOM</code> elements as the result of an observable:</p><pre><code class="language-julia hljs">App() do session
     s = Slider(1:3)
     # use map!(result_observable, ...)
     # To use any as the result type, otherwise you can&#39;t return
@@ -21,18 +37,84 @@ end</code></pre><p>The <code>s.value</code> is an <code>Observable</code> which 
             return x^2
         end
     end
-    return DOM.div(s, value)
-end</code></pre><p>In other words, the whole app can just be one big observable:</p><pre><code class="language-julia hljs">import JSServe.TailwindDashboard as D
-App() do
+    return JSServe.record_states(session, DOM.div(s, value))
+end</code></pre><div>
+  <script type="module">    JSServe.fetch_binary('d811e5e6d7d2909ca88dc246dd76bbaecabf6a61-15231038662908336002.dist').then(msgs=> JSServe.init_session('2bde54f7-43e2-46f8-acc2-d7d7b4b91bf6', msgs, 'sub'));
+</script>
+  <div id="2bde54f7-43e2-46f8-acc2-d7d7b4b91bf6" data-jscall-id="subsession-application-dom">
+    <div data-jscall-id="4">
+      <input step="1" max="3" min="1" data-jscall-id="5" value="1" oninput="" type="range" />
+      <span data-jscall-id="7">
+        <div data-jscall-id="8">
+          <script data-jscall-id="9" type="module">JSServe.init_session('9016c955-8ec8-49d1-9b84-53a0becfaf92', null, 'sub')</script>
+          <div id="9016c955-8ec8-49d1-9b84-53a0becfaf92" data-jscall-id="subsession-application-dom">
+            <h1 data-jscall-id="6">hello from slider: 1</h1>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div><p>In other words, the whole app can just be one big observable:</p><pre><code class="language-julia hljs">import JSServe.TailwindDashboard as D
+App() do session
     s = D.Slider(&quot;Slider: &quot;, 1:3)
     checkbox = D.Checkbox(&quot;Chose:&quot;, true)
     menu = D.Dropdown(&quot;Menu: &quot;, [sin, tan, cos])
-    app = map(checkbox.widget.value, s.widget.value, menu.widget.option) do checkboxval, sliderval, menuval
+    app = map(checkbox.widget.value, s.widget.value, menu.widget.value) do checkboxval, sliderval, menuval
         DOM.div(checkboxval, sliderval, menuval)
     end
-    return D.FlexRow(
-        D.Tailwind
+    return JSServe.record_states(session, D.FlexRow(
         D.Card(D.FlexCol(checkbox, s, menu)),
         D.Card(app)
-    )
-end</code></pre></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Friday 17 February 2023 10:04">Friday 17 February 2023</span>. Using Julia version 1.8.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+    ))
+end</code></pre><div>
+  <script type="module">    JSServe.fetch_binary('36a0b89ca7c34cd675d3ddb5a78f61d5db1979c5-9907119890370798357.dist').then(msgs=> JSServe.init_session('6c5668df-54e5-42f4-8733-62c9b4e91245', msgs, 'sub'));
+</script>
+  <div id="6c5668df-54e5-42f4-8733-62c9b4e91245" data-jscall-id="subsession-application-dom">
+    <div class="m-2 flex flex-row " data-jscall-id="24">
+      <link href="tailwind.min.css" rel="stylesheet" data-jscall-id="587" type="text/css" />
+      <div class="rounded-md p-2 m-2 shadow " style="width: fit-content; height: fit-content" data-jscall-id="25">
+        <link href="tailwind.min.css" rel="stylesheet" data-jscall-id="588" type="text/css" />
+        <div class="m-2 flex flex-col " data-jscall-id="26">
+          <link href="tailwind.min.css" rel="stylesheet" data-jscall-id="589" type="text/css" />
+          <div class="flex-row, mb-1 mt-1 " data-jscall-id="27">
+            <h2 class="font-semibold " data-jscall-id="28">Chose:</h2>
+            <input checked="true" data-jscall-id="29" onchange="" type="checkbox" />
+          </div>
+          <div class="flex-row, mb-1 mt-1 " data-jscall-id="30">
+            <h2 class="font-semibold " data-jscall-id="31">
+              <div data-jscall-id="32">Slider: 
+                <div class="float-right" data-jscall-id="33">
+                  <span data-jscall-id="34">1</span>
+                </div>
+              </div>
+            </h2>
+            <input step="1" max="3" min="1" style="width: 100%;" data-jscall-id="35" value="1" oninput="" type="range" />
+          </div>
+          <div class="flex-row, mb-1 mt-1 " data-jscall-id="36">
+            <h2 class="font-semibold " data-jscall-id="37">Menu: </h2>
+            <select class=" focus:outline-none focus:shadow-outline focus:border-blue-300 bg-white bg-gray-100 hover:bg-white text-gray-800 font-semibold m-1 py-1 px-3 border border-gray-400 rounded shadow" data-jscall-id="46">
+              <option data-jscall-id="590">sin</option>
+              <option data-jscall-id="591">tan</option>
+              <option data-jscall-id="592">cos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-md p-2 m-2 shadow " style="width: fit-content; height: fit-content" data-jscall-id="38">
+        <link href="tailwind.min.css" rel="stylesheet" data-jscall-id="593" type="text/css" />
+        <span data-jscall-id="40">
+          <div data-jscall-id="41">
+            <script data-jscall-id="42" type="module">JSServe.init_session('b2ecfc2b-3fc7-4fe8-8469-23ae0542a813', null, 'sub')</script>
+            <div id="b2ecfc2b-3fc7-4fe8-8469-23ae0542a813" data-jscall-id="subsession-application-dom">
+              <div data-jscall-id="39">
+                <p data-jscall-id="43">true</p>
+                <p data-jscall-id="44">1</p>
+                <p data-jscall-id="45">sin &#40;generic function with 14 methods&#41;</p>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="widgets.html">« Widgets</a><a class="docs-footer-nextpage" href="deployment.html">Deployment »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Monday 20 February 2023 18:30">Monday 20 February 2023</span>. Using Julia version 1.8.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
