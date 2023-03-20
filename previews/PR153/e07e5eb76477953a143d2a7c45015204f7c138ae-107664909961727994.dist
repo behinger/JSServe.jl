@@ -1,0 +1,25 @@
+í«,jìŸ$a9641fd3-1a11-4b49-8b98-21f0c22cb9c2Ä£subÇßpayloadì»ikí«,jìŸ$a9641fd3-1a11-4b49-8b98-21f0c22cb9c2Ä£subÇßpayloadî»+kí«∂jìŸ$a9641fd3-1a11-4b49-8b98-21f0c22cb9c2É≥2967934579016476817«eí≥2967934579016476817¥12255491917137589241«eí¥12255491917137589241ì≤856858233930255973«eí≤856858233930255973£subÉ£obs«h≤856858233930255973ßpayload»?fìÇ¥12960795281462052138«h≥2967934579016476817≥3160226614273291197«h¥12255491917137589241Ÿ®return (index) => {
+    const values = __lookup_interpolated('3160226614273291197').value
+    __lookup_interpolated('12960795281462052138').notify(values[index - 1])
+}
+Ÿ9/home/runner/work/JSServe.jl/JSServe.jl/src/widgets.jl:55®msg_type°1»Rkí«YjìŸ$a9641fd3-1a11-4b49-8b98-21f0c22cb9c2Å≥1507744460418837027«eí≥1507744460418837027£subÉ£obs«h≥1507744460418837027ßpayload«√fìÄŸjreturn value=> JSServe.update_node_attribute(document.querySelector('[data-jscall-id="5"]'), 'max', value)ŸS/home/runner/work/JSServe.jl/JSServe.jl/src/rendering/hyperscript_integration.jl:53®msg_type°1»&kí«,jìŸ$a9641fd3-1a11-4b49-8b98-21f0c22cb9c2Ä£subÉ£obs«h≤856858233930255973ßpayload«≈fìÄŸlreturn value=> JSServe.update_node_attribute(document.querySelector('[data-jscall-id="5"]'), 'value', value)ŸS/home/runner/work/JSServe.jl/JSServe.jl/src/rendering/hyperscript_integration.jl:53®msg_type°1»qkí«,jìŸ$a9641fd3-1a11-4b49-8b98-21f0c22cb9c2Ä£subÇßpayload»)fìÅ¥17361531380685904806«h≤856858233930255973Ÿø((node) => {
+    node['oninput'] = (event)=> {
+    __lookup_interpolated('17361531380685904806').notify(parseInt(event.srcElement.value))
+}
+})(document.querySelector('[data-jscall-id="5"]'));Ÿ9/home/runner/work/JSServe.jl/JSServe.jl/src/widgets.jl:66®msg_type°2®msg_type°9»	kí«,jìŸ$a9641fd3-1a11-4b49-8b98-21f0c22cb9c2Ä£subÇßpayload»ƒfìÅ¥17827197092454596054É°1í»skí«,jìŸ$c80badff-7028-4999-bee5-809a6d246a1cÄ£subÜ™session_idŸ$c80badff-7028-4999-bee5-809a6d246a1c®messagesÇßpayloadê®msg_type°9ßreplace¬®msg_type¢12§html«¬iì£diví«äiì£divë«-iì¢h1ë¥hello from slider: 1ÅÆdata-jscall-id¢14Ç¢idŸ$c80badff-7028-4999-bee5-809a6d246a1cÆdata-jscall-id∫subsession-application-dom«iì£divêÅÆdata-jscall-id¢16ÅÆdata-jscall-id¢15±dom_node_selector°7«]kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload¢id≥2967934579016476817®msg_type°0°2í»∞kí«,jìŸ$7a8efafc-f87b-4132-a9ad-9f05d2d2745cÄ£subÜ™session_idŸ$7a8efafc-f87b-4132-a9ad-9f05d2d2745c®messagesÇßpayloadê®msg_type°9ßreplace¬®msg_type¢12§html«ˇiì£diví««iì£divë«jiì£imgêÉ£srcŸ?https://docs.makie.org/stable/assets/makie_logo_transparent.svgÆdata-jscall-id¢20•width•200pxÇ¢idŸ$7a8efafc-f87b-4132-a9ad-9f05d2d2745cÆdata-jscall-id∫subsession-application-dom«iì£divêÅÆdata-jscall-id¢22ÅÆdata-jscall-id¢21±dom_node_selector°7«]kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload¢id≥2967934579016476817®msg_type°0°3í»|kí«,jìŸ$00a35724-d034-4f43-8486-c39c3d13286cÄ£subÜ™session_idŸ$00a35724-d034-4f43-8486-c39c3d13286c®messagesÇßpayloadê®msg_type°9ßreplace¬®msg_type¢12§html«Àiì£diví«ìiì£divë«6iì§spanë«iì°pë°9ÅÆdata-jscall-id¢29ÅÆdata-jscall-id¢27Ç¢idŸ$00a35724-d034-4f43-8486-c39c3d13286cÆdata-jscall-id∫subsession-application-dom«iì£divêÅÆdata-jscall-id¢30ÅÆdata-jscall-id¢28±dom_node_selector°7«]kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload¢id≥2967934579016476817®msg_type°0⁄öJSServe.fetch_binary('ce8d5b63dd209eaf43c84d5f0fce855dade79194-7139227600577571782.dist').then(binary => {
+    const statemap = __lookup_interpolated('17827197092454596054')
+    console.log(statemap)
+    const observables = JSServe.decode_binary(binary, false);
+    JSServe.onany(observables, (states) => {
+        console.log(states)
+        // messages to send for this state of that observable
+        const messages = statemap[states]
+        console.log(messages)
+        // not all states trigger events
+        // so some states won't have any messages recorded
+        if (messages){
+            messages.forEach(JSServe.process_message)
+        }
+    })
+})
+Ÿ9/home/runner/work/JSServe.jl/JSServe.jl/src/export.jl:126®msg_type°2«Fkí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÇßpayloadê®msg_type°9®msg_type°9

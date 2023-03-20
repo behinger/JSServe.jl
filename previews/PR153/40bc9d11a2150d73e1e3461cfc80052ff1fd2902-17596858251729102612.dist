@@ -1,0 +1,27 @@
+í«,jìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÄ£subÇßpayloadì»§kí«,jìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÄ£subÇßpayloadï»-kí«∂jìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÉ≥1856508289756795458«eí≥1856508289756795458¥15362519711256655432«eí¥15362519711256655432ì≤345283250208625237«eí≤345283250208625237£subÉ£obs«h≤345283250208625237ßpayload»AfìÇ¥18400212123373405433«h≥1856508289756795458¥14484032435079994739«h¥15362519711256655432Ÿ©return (index) => {
+    const values = __lookup_interpolated('14484032435079994739').value
+    __lookup_interpolated('18400212123373405433').notify(values[index - 1])
+}
+Ÿ9/home/runner/work/JSServe.jl/JSServe.jl/src/widgets.jl:55®msg_type°1»Ukí«[jìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÅ¥13072096551238481422«eí¥13072096551238481422£subÉ£obs«h¥13072096551238481422ßpayload«√fìÄŸjreturn value=> JSServe.update_node_attribute(document.querySelector('[data-jscall-id="2"]'), 'max', value)ŸS/home/runner/work/JSServe.jl/JSServe.jl/src/rendering/hyperscript_integration.jl:53®msg_type°1»&kí«,jìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÄ£subÉ£obs«h≤345283250208625237ßpayload«≈fìÄŸlreturn value=> JSServe.update_node_attribute(document.querySelector('[data-jscall-id="2"]'), 'value', value)ŸS/home/runner/work/JSServe.jl/JSServe.jl/src/rendering/hyperscript_integration.jl:53®msg_type°1»2kí«ZjìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÅ≥1170618580944084372«eí≥1170618580944084372°1£subÉ£obs«h≥1170618580944084372ßpayload«¢fìÄŸUreturn (val)=> {
+    document.querySelector('[data-jscall-id="3"]').innerText = val
+}ŸG/home/runner/work/JSServe.jl/JSServe.jl/src/rendering/observables.jl:85®msg_type°1»qkí«,jìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÄ£subÇßpayload»)fìÅ¥10445895906236865765«h≤345283250208625237Ÿø((node) => {
+    node['oninput'] = (event)=> {
+    __lookup_interpolated('10445895906236865765').notify(parseInt(event.srcElement.value))
+}
+})(document.querySelector('[data-jscall-id="2"]'));Ÿ9/home/runner/work/JSServe.jl/JSServe.jl/src/widgets.jl:66®msg_type°2®msg_type°9»Çkí«,jìŸ$b4aad518-a12a-4ba3-a4b5-f61574fb8afcÄ£subÇßpayload»:fìÅ≥8810377678014134127É°1í«^kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload°1¢id≥1170618580944084372®msg_type°0«]kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload¢id≥1856508289756795458®msg_type°0°2í«^kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload°4¢id≥1170618580944084372®msg_type°0«]kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload¢id≥1856508289756795458®msg_type°0°3í«^kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload°9¢id≥1170618580944084372®msg_type°0«]kí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÉßpayload¢id≥1856508289756795458®msg_type°0⁄ôJSServe.fetch_binary('2adc03e89c6953a7790fc906454d7ed71e4615b0-2276108727523000322.dist').then(binary => {
+    const statemap = __lookup_interpolated('8810377678014134127')
+    console.log(statemap)
+    const observables = JSServe.decode_binary(binary, false);
+    JSServe.onany(observables, (states) => {
+        console.log(states)
+        // messages to send for this state of that observable
+        const messages = statemap[states]
+        console.log(messages)
+        // not all states trigger events
+        // so some states won't have any messages recorded
+        if (messages){
+            messages.forEach(JSServe.process_message)
+        }
+    })
+})
+Ÿ9/home/runner/work/JSServe.jl/JSServe.jl/src/export.jl:126®msg_type°2«Fkí«-jìŸ$aef4800c-4711-4988-8406-a2953c696bd6Ä§rootÇßpayloadê®msg_type°9®msg_type°9
